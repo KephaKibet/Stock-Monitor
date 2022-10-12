@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <main>
+    <main className="container">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<StockListPage />} />
