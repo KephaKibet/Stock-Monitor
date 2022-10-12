@@ -1,6 +1,8 @@
+import React from "react"
+
 export const StockDetailPage = () => {
   
-  return <main>
-    <h1>This is the StockDetailPage</h1>
-  </main>
+  return <div>
+      This is the Stock Detail Page
+  </div>
 }

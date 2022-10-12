@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react"
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { StockListPage } from "./pages/stockListPage";
 import { StockDetailPage } from "./pages/stockDetailPage";
 
@@ -13,7 +14,6 @@ function App() {
           <Route path="/detail/:symbol" element={<StockDetailPage />} />
         </Routes>
       </BrowserRouter>
-
     </main>
   );
 }
