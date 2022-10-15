@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import finnHub from "../api/finnHub"
 export const StockList = () => {
-  const [stock,setStock] = useState
+  const [stock,setStock] = useState()
 
 
 
@@ -9,18 +9,23 @@ export const StockList = () => {
   
 
   useEffect(() => {
-let isMounted=true
+   let isMounted=true
 
-    const fetchData = async () => {
+    const fetchData =  async () => {
+      const responses = []
       try {
-        const response = await finnHub.get("/quote", {
-          params: {
-          symbol:"MSFT"
-        }})
-        console.log(response);
+        const responses = await  Promise.all(watchList.map((stock) => {
+          return finnHub.get("/quote", {
+            params: {
+              symbol:stock
+            }
+          })
+        }))
+ 
+        console.log(responses);
 
         if (isMounted) {
-          setStock(response.json)
+          setStock(responses)
         }
       }
 
@@ -38,3 +43,5 @@ let isMounted=true
       StockList
   </div>
 }
+
+
