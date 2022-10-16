@@ -7,7 +7,9 @@ export const StockList = () => {
 
   const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
   
-
+  const changeColour = (change) => {
+   return change > 0 ? "success":"danger"
+ }
   useEffect(() => {
    let isMounted=true
 
@@ -66,9 +68,9 @@ export const StockList = () => {
           return (
             <tr className="table-row" key={stockData.symbol}>
               <th scope="row">{stockData.symbol}</th>
-              <td>{stockData.data.c}</td>
-              <td>{stockData.data.d}</td>
-              <td>{stockData.data.dp}</td>
+              <td >{stockData.data.c}</td>
+              <td className={`text-${changeColour(stockData.data.d)}`}>{stockData.data.d}</td>
+              <td className={`text-${changeColour(stockData.data.dp)}`}>{stockData.data.dp}</td>
               <td>{stockData.data.h}</td>
               <td>{stockData.data.l}</td>
               <td>{stockData.data.o}</td>
