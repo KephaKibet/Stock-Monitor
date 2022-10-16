@@ -1,3 +1,6 @@
+
+
+  {stock.map((stockData) => {
 # Getting Started with Create React App
 
 

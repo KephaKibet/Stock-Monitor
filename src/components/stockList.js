@@ -62,7 +62,7 @@ export const StockList = () => {
         </tr>
       </thead>
       <tbody>
-        {stock.map((stockData) => {
+        {stock && stock.map((stockData) => {
           return (
             <tr className="table-row" key={stockData.symbol}>
               <th scope="row">{stockData.symbol}</th>
