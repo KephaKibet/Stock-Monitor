@@ -23,7 +23,15 @@ export const StockList = () => {
         }))
  
         console.log(responses);
-
+        const data = responses.map((response) => {
+          return {
+            data: response.data,
+            symbol:response.config.params.symbol
+          }
+        
+        })
+        console.log(data);
+       
         if (isMounted) {
           setStock(responses)
         }
@@ -40,7 +48,8 @@ export const StockList = () => {
   },[])
   
   return <div>
-      StockList
+    <table className="table hover mt-5"></table>
+    <t-hesd
   </div>
 }
 
