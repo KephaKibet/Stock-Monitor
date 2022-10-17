@@ -11,10 +11,10 @@ export const AutoComplete = () => {
       try {
         const response = await finnHub.get("/search", {
           params: {
-            q:search
+            q: search
           }
         })
-        fetchData()
+        
         console.log(response);
         
       }
@@ -22,6 +22,9 @@ export const AutoComplete = () => {
         console.log(error);
       }
     }
+    // only fetch data if there is a search parameter/text otherwise it returns unecessarily large result
+    if(search.length>0) 
+    fetchData()
   })
 
 
