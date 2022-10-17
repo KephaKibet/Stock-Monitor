@@ -27,9 +27,12 @@ export const AutoComplete = () => {
         console.log(error);
       }
     }
-    // only fetch data if there is a search parameter/text otherwise it returns unecessarily large result
+    // only fetch data if there is a search term otherwise it returns unecessarily large result
     if(search.length>0) 
       fetchData()
+
+      // set result when there is no search term
+    else setResults([])
     // dependecy array- only run when search changes...
   },[search])
 
