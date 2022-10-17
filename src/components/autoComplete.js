@@ -3,10 +3,12 @@ import finnHub from "../api/finnHub"
 
 
 export const AutoComplete = () => {
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
+  const [ results, setResults] = useState([])
   
 
   useEffect(() => {
+    let isMounted=true
     const fetchData = async () => {
       try {
         const response = await finnHub.get("/search", {
@@ -14,6 +16,9 @@ export const AutoComplete = () => {
             q: search
           }
         })
+
+        if(isMounted)
+        setResults(response.data.result)
         
         console.log(response);
         
@@ -24,8 +29,9 @@ export const AutoComplete = () => {
     }
     // only fetch data if there is a search parameter/text otherwise it returns unecessarily large result
     if(search.length>0) 
-    fetchData()
-  })
+      fetchData()
+    // dependecy array- only run when search changes...
+  },[search])
 
 
   return <div className="w-50 p-5 rounded mx-auto">
