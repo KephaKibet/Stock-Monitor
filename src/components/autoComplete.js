@@ -4,7 +4,20 @@ import finnHub from "../api/finnHub"
 
 export const AutoComplete = () => {
   const [search, setSearch] = useState("");
-  const [ results, setResults] = useState([])
+  const [results, setResults] = useState([]);
+  const renderDropdown = () => {
+    const dropDownClass = search ? "show" : null
+    return (
+      <ul className={`dropdown-menu ${dropDownClass}`}>
+        {results.map((result) => {
+          return (
+          
+        )
+      })}
+      </ul>
+    )
+    
+  }
   
 
   useEffect(() => {
@@ -41,6 +54,7 @@ export const AutoComplete = () => {
     <div className="form-floating dropdown">
       <input style={{ backgroundColor: "rgba(45,158,171,0.1)" }} id="search" type="text" className="form-control" placeholder="Search" autoComplete="off" value={search} onChange={(e)=> setSearch(e.target.value)}></input>
       <label htmlFor="search">Search</label>
+      {renderDropdown()}
       <ul className="dropdown-menu">
         <li>Stock 1</li>
         <li>Stock 2</li>
