@@ -11,6 +11,7 @@ export const AutoComplete = () => {
       <ul className={`dropdown-menu ${dropDownClass}`}>
         {results.map((result) => {
           return (
+            <li className="dropdown-item">{result.description} ({result.symbol})</li>
           
         )
       })}
