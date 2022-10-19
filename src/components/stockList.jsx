@@ -54,7 +54,7 @@ export const StockList = () => {
     fetchData()
 
     return ()=>(isMounted =false)
-
+// only update watchlist after component mounts
   },[watchList])
   
   return <div>
