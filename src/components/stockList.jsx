@@ -4,11 +4,8 @@ import { BsFillCaretDownFill } from "react-icons/bs"
 import {BsFillCaretUpFill} from "react-icons/bs"
 
 export const StockList = () => {
-  const [stock,setStock] = useState()
-
-
-
   const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
+  const [stock,setStock] = useState()
   
   const changeColour = (change) => {
    return change > 0 ? "success":"danger"
@@ -19,7 +16,6 @@ export const StockList = () => {
     return change > 0 ? <BsFillCaretUpFill/> :
       <BsFillCaretDownFill />
   }
-
 
   useEffect(() => {
    let isMounted=true
