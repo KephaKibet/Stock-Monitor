@@ -1,8 +1,10 @@
-
+import { useParams } from "react-router-dom"
 
 export const StockDetailPage = () => {
+
+  const {symbol}=useParams()
   
   return <div>
-      This is the Stock Detail Page
+      {symbol}
   </div>
 }
