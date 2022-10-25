@@ -19,7 +19,15 @@ export const StockChart = ({chartData, symbol}) => {
       }
     },
     xaxis: {
-      type:"datetime"
+      type: "datetime",
+      labels: {
+        datetimeUTC:false
+      }
+    },
+    tooltip: {
+      x: {
+        format: "mmm dd HH"
+      }
     }
   }
 
@@ -31,6 +39,6 @@ export const StockChart = ({chartData, symbol}) => {
 
 
   return <div className="mt-5 p-4 shadow-sm bg-white">
-    <Chart options={options} series ={series} type ="area"nwidth = "100% "/>
+    <Chart options={options} series ={series} type ="area" width = "100%" />
   </div>
  }
