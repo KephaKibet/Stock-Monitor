@@ -28,14 +28,30 @@ export const StockChart = ({ chartData, symbol }) => {
     },
     tooltip: {
       x: {
-        format: "mmm dd HH"
+        format: "mm dd HH"
       }
     }
   }
 
+  const determineTimeFormat = () => {
+    switch (dateFormat) {
+      case "24h":
+        return day
+        case "7d":
+        return week
+        case "1y":
+        return year
+      default:
+        return day
+    }
+  }
+
+
+
+
   const series = [{
     name: symbol,
-    data:day
+    data:determineTimeFormat()
   }]
 
 
