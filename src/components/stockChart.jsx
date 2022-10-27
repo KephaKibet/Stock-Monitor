@@ -54,18 +54,27 @@ export const StockChart = ({ chartData, symbol }) => {
     data:determineTimeFormat()
   }]
 
+  const renderButtonSelect = (button) => {
+    const classes = "btn m-1"
+
+    if (button === dateFormat) {
+      return classes +"btn-outline-primary"
+    }
+    
+  }
+
 
 
   return <div className="mt-5 p-4 shadow-sm bg-white">
     <Chart options={options} series={series} type="area" width="100%" />
     <div>
-      <button onClick ={()=>setDateFormat("24h")}> 24H
+      <button className={renderButtonSelect("24h")} onClick ={()=>setDateFormat("24h")}> 24H
 
       </button >
-      <button onClick ={()=>setDateFormat("7d")}>7D
+      <button className={renderButtonSelect("7d")} onClick ={()=>setDateFormat("7d")}>7D
 
       </button>
-      <button onClick ={()=>setDateFormat("1y")}>1Y
+      <button className={renderButtonSelect("1y")} onClick ={()=>setDateFormat("1y")}>1Y
 
 </button>
 
