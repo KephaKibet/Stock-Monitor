@@ -5,8 +5,25 @@ import { useState } from "react"
 export const StockChart = ({ chartData, symbol }) => {
   const [dateFormat, setDateFormat] = useState("24h")
   const { day, week, year } = chartData
+
+  const determineTimeFormat = () => {
+    switch (dateFormat) {
+      case "24h":
+        return day
+        case "7d":
+        return week
+        case "1y":
+        return year
+      default:
+        return day
+    }
+  }
+
+  const color = determineTimeFormat()
+  [determineTimeFormat().length - 1].y - determineTimeFormat()[0].y>0? "#26c281": "#ed3419"
   
   const options = {
+    colors:[color],
     tittle: {
       text: symbol,
       align: "center",
@@ -33,19 +50,7 @@ export const StockChart = ({ chartData, symbol }) => {
     }
   }
 
-  const determineTimeFormat = () => {
-    switch (dateFormat) {
-      case "24h":
-        return day
-        case "7d":
-        return week
-        case "1y":
-        return year
-      default:
-        return day
-    }
-  }
-
+  
 
 
 
@@ -55,12 +60,12 @@ export const StockChart = ({ chartData, symbol }) => {
   }]
 
   const renderButtonSelect = (button) => {
-    const classes = "btn m-1"
+    const classes = "btn m-1 "
 
     if (button === dateFormat) {
-      return classes +"btn-outline-primary"
+      return classes + "btn-primary"
     }
-    
+      else{ return classes + "btn-outline-primary"}
   }
 
 
