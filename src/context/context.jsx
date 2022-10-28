@@ -1,4 +1,4 @@
-import { createContext,useState} from "react";
+import { createContext,useState, useEffect} from "react";
 
 
 export const WatchListContext = createContext()
@@ -6,7 +6,13 @@ export const WatchListContext = createContext()
 export const WatchListContextProvider = (props) => {
 
   
-  const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
+  const [watchList, setWatchList] = useState(
+    localStorage.getItem("watchList")?.split(",") || ["GOOGL", "MSFT", "AMZN"]
+  )
+
+  useEffect(() => {
+    localStorage.setItem("watchList", watchList)
+  }, [watchList])
 
   const addStock = (stock) => {
     // check if stock doesnt exists in watchlist // if true, add to watch list

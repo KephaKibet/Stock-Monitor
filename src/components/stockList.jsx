@@ -4,7 +4,6 @@ import finnHub from "../api/finnHub"
 import { BsFillCaretDownFill } from "react-icons/bs"
 import { BsFillCaretUpFill } from "react-icons/bs"
 import { WatchListContext } from "../context/context"
-import { StockChart } from "./stockChart"
 
 export const StockList = () => {
   const [stock, setStock] = useState()
