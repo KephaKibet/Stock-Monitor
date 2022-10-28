@@ -7,6 +7,7 @@ export const WatchListContextProvider = (props) => {
 
   
   const [watchList, setWatchList] = useState(
+    // ? null coalescing operator, check for null
     localStorage.getItem("watchList")?.split(",") || ["GOOGL", "MSFT", "AMZN"]
   )
 
