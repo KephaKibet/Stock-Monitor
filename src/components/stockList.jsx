@@ -8,7 +8,7 @@ import { StockChart } from "./stockChart"
 
 export const StockList = () => {
   const [stock, setStock] = useState()
-  const { watchList } = useContext(WatchListContext)
+  const { watchList, deleteStock } = useContext(WatchListContext)
   const navigate = useNavigate()
   
   const changeColour = (change) => {
@@ -25,7 +25,6 @@ export const StockList = () => {
    let isMounted=true
 
     const fetchData =  async () => {
-      const responses = []
       try {
         const responses = await  Promise.all(watchList.map((stock) => {
           return finnHub.get("/quote", {
@@ -90,7 +89,10 @@ export const StockList = () => {
               <td>{stockData.data.h}</td>
               <td>{stockData.data.l}</td>
               <td>{stockData.data.o}</td>
-              <td>{stockData.data.pc}<button className="btn btn-danger btn-sm ml-3 d-inline-block delete-button" >Unwatch</button></td>
+              <td>{stockData.data.pc}<button className="btn btn-danger btn-sm ml-3 d-inline-block delete-button" onClick={(e) => {
+                e.stopPropagation()
+                deleteStock(stockData.symbol)
+              }}>Unwatch</button></td>
             </tr>
           )
         })}
