@@ -1,10 +1,10 @@
 
 
-  {stock.map((stockData) => {
+
 # Getting Started with Create React App
 
 
-cd3e3c2ad3ic0uj47jpgcd3e3c2ad3ic0uj47jq0
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
